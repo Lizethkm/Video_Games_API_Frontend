@@ -1,36 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import DisplayVideoGames from './Components/DisplayVideoGames';
-
-
-
-
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import DisplayPlatformStats from './Components/DisplayVideoGames/DisplayVideoGames';
+import SearchBar from './Components/SearchBar/SearchBar';
+import DisplayGames from './Components/DisplayGames/DisplayGames';
+import BestPlatformChart from './Components/BestConsoleStats/BestConsoleChart';
 
 
 function App() {
+  
+  const [games, setGames] = useState([]);
+  
 
-    const [games, setGames] = useState([])
+  useEffect(() => {
+    getAllVideoGames();
+  }, []);
 
-    useEffect(() => {
-        getGames()
-    }, [])
+  async function getAllVideoGames() {
+    let response = await axios.get("https://localhost:7260/api/games/");
+    setGames(response.data);
+  }
 
-    const getGames = async () => {
-        try{
-            let response = await axios.get("https://localhost:7260/api/games/");
-            setGames(response.data)
-        }catch(ex){
-          console.log(`ERROR in getGames EXCEPTION: ${ex}`)
-        }
-    }
-
-    return ( 
-        <div>
-            < DisplayVideoGames games = {games} />
-        </div>
-    )
-
-
+  return (
+    <div>
+      <h3> Video Games  </h3>
+      <SearchBar games = {games} setGames = {setGames} />
+      <DisplayPlatformStats games={games} />
+      <DisplayGames games={games} setGames = {setGames}/>
+      <BestPlatformChart games = {games}/>
+      
+    </div>
+  );
 }
 
 export default App;
