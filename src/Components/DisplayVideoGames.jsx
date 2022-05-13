@@ -17,13 +17,22 @@ const DisplayVideoGames = ({games}) => {
         })
         console.log(platforms)
 
+        let distinctPlatform = [...new Set(platforms)]
+        console.log("Distinct Platform:", distinctPlatform)
+
+        let platformArrays = distinctPlatform.map(platform => {
+            return [platform, 10, "silver"]
+        });
+
+        console.log("Platform Arrays:", platformArrays)
+
         const data = [
-            ["Platform", "Sales", { role: "style" }],
-            ["PS3", 8.94, "#b87333"], // RGB value
-            ["Silver", 10.49, "silver"], // English color name
-            ["Gold", 19.3, "gold"],
-            ["Platinum", 21.45, "color: #e5e4e2"], // CSS-style declaration
+            ["Platform", "Sales", { role:  "style" }],
+            ...platformArrays
+            
+
           ];
+          console.log("Data:", data)
           return data;
     }
 
