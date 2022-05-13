@@ -1,49 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {Chart} from "react-google-charts";
 
 
 
 
-const DisplayVideoGames = (props) => {
+const DisplayVideoGames = ({games}) => {
+
+    function generateDataForChart (){
+        console.log(games)
+
+        let filterGames = games.filter(game => game.year >= 2013);
+        console.log(filterGames)
+
+        let platforms = filterGames.map(game => {
+            return game.platform
+        })
+        console.log(platforms)
+
+        const data = [
+            ["Platform", "Sales", { role: "style" }],
+            ["PS3", 8.94, "#b87333"], // RGB value
+            ["Silver", 10.49, "silver"], // English color name
+            ["Gold", 19.3, "gold"],
+            ["Platinum", 21.45, "color: #e5e4e2"], // CSS-style declaration
+          ];
+          return data;
+    }
+
+
+
     return ( 
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Platform</th>
-                    <th>Year</th>
-                    <th>Genre</th>
-                    <th>Publisher</th>
-                    <th>North America Sales</th>
-                    <th>Europe Sales</th>
-                    <th>Japan Sales</th>
-                    <th>Other Sales</th>
-                    <th>Global Sales</th>
+        <div>
+            <h1>Video Game Graph</h1>
+            <Chart chartType="ColumnChart" width="100%" height="400px" data={generateDataForChart()} />
+        </div>
 
-                </tr>
-              
-            </thead>
-            <tbody>
-                {props.games.map((el) => {
-                    return (
-                        <tr>
-                            <td>{el.rank}</td>
-                            <td>{el.game}</td>
-                            <td>{el.platform}</td>
-                            <td>{el.year}</td>
-                            <td>{el.genre}</td>
-                            <td>{el.publisher}</td>
-                            <td>{el.NorthAmericaSales}</td>
-                            <td>{el.EuropeSales}</td>
-                            <td>{el.JapanSales}</td>
-                            <td>{el.OtherSales}</td>
-                            <td>{el.GlobalSales}</td> 
-                        </tr>
-                    
-                    )
-                })}
-            </tbody>
-        </table>
      );
 }
  

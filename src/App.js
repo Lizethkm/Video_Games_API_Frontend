@@ -11,19 +11,20 @@ function App() {
 
     const [games, setGames] = useState([])
 
-    const getGames = async () => {
-        let response = await axios.get("https://localhost:7260/api/games");
-        console.log(response.data)
-        setGames(response.data)
-    };
-
-
     useEffect(() => {
         getGames()
     }, [])
 
+    const getGames = async () => {
+        try{
+            let response = await axios.get("https://localhost:7260/api/games/");
+            setGames(response.data)
+        }catch(ex){
+          console.log(`ERROR in getGames EXCEPTION: ${ex}`)
+        }
+    }
 
-    return (
+    return ( 
         <div>
             < DisplayVideoGames games = {games} />
         </div>
