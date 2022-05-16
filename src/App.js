@@ -9,6 +9,7 @@ import BestPlatformChart from './Components/BestConsoleStats/BestConsoleChart';
 function App() {
   
   const [games, setGames] = useState([]);
+  const [userInput, setUserInput] = useState([]);
   
 
   useEffect(() => {
@@ -20,10 +21,21 @@ function App() {
     setGames(response.data);
   }
 
+  debugger
+  function searchVideoGames(props){
+    const searchedVideoGames = games.filter((game) => {
+      if(game.name.includes(props)){
+        return true
+      }
+    })
+    setGames(searchedVideoGames)
+  } 
+
   return (
     <div>
       <h3> Video Games  </h3>
-      <SearchBar games = {games} setGames = {setGames} />
+      {/* <SearchBar games = {games} setGames = {setGames} /> */}
+      <SearchBar searchVideoGames = {searchVideoGames} />
       <DisplayPlatformStats games={games} />
       <DisplayGames games={games} setGames = {setGames}/>
       <BestPlatformChart games = {games}/>
