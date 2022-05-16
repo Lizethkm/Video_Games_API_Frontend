@@ -3,11 +3,11 @@ import React, {useState} from 'react';
 
 
 const DisplayPlatformStats = (props) => {
-  const [title, setTitle] = useState({
-    title:"Sales Per Platform",
-    vAxis: {title: "Sales"},
-    hAxis: {title: "Platform"}
-  })
+//   const [title, setTitle] = useState({
+//     title:"Sales Per Platform",
+//     vAxis: {title: "Sales"},
+//     hAxis: {title: "Platform"}
+//   })
   function generateDataForChart() {
     let filteredGames = props.games.filter(game => game.year >= 2013)
     let platforms = filteredGames.map(game => {
@@ -22,7 +22,7 @@ const DisplayPlatformStats = (props) => {
 
       let sum = globalSales.reduce(
         (total, currentValue) => total + currentValue, 0).toFixed(2);
-      return [platform, parseFloat(sum), "blue"]
+      return [platform, parseFloat(sum), "black"]
     });
     
     const data = [
@@ -32,10 +32,22 @@ const DisplayPlatformStats = (props) => {
     return data
   }
 
+  const options = {
+    title: "Sales Per Platform",
+    hAxis: { title: "Platform", minValue: 0, maxValue: 15 },
+    vAxis: { title: "Sales", minValue: 0, maxValue: 15 },
+    legend: "none",
+    animation: {
+      startup: true,
+      easing: "linear",
+      duration: 1500,
+    },
+    enableInteractivity: false,
+  };
 
   return (
     
-    <Chart chartType="ColumnChart" width="100%" height="400px" data={generateDataForChart()} options= {title}/>
+    <Chart  chartType="ScatterChart" width="80%" height="400px" data={generateDataForChart()} options= {options}/>
   );
 
 }
