@@ -8,7 +8,7 @@ import SearchBar from "../SearchBar/SearchBar";
 
 const Navbar = (props) => {
   return (
-    <div className="ms-auto">
+    <div className="navbar">
       <h3> Video Games Data  </h3>
       <img src={YarnPikachu} alt='Yarn Pikachu' />
       <img src={KirbyYarn} alt='Yarn Kirby' />

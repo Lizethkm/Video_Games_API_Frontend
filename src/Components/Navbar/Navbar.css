@@ -6,6 +6,8 @@ img{
 
 }
 
-/* div{
-    justify-content: end;
-} */
+.navbar{
+    display: flex;
+    background-color: black;
+}
+
