@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import DisplayPlatformStats from './Components/DisplayVideoGames/DisplayVideoGames';
 import DisplayGames from './Components/DisplayGames/DisplayGames';
-import BestPlatformChart from './Components/BestConsoleStats/BestConsoleChart';
+import BestPlatformChart from './Components/BestPlatformChart/BesPlatformChart';
 import BestPublisher from './Components/BestPublisher/BestPublisher';
 import Navbar from './Components/Navbar/Navbar'
 import "./App.css"
@@ -29,7 +29,7 @@ function App() {
       </div>
       <div>
         <DisplayPlatformStats games={games} />
-        <BestPlatformChart games = {games}/>
+        <BestPlatformChart games = {games} setGames ={setGames}/>
         <BestPublisher games = {games} />
         <DisplayGames games={games} setGames = {setGames}/>
       </div>

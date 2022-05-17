@@ -6,7 +6,7 @@ import {Chart} from "react-google-charts";
 
 const BestPublisher = (props) => {
     
-    function generateDataForPlatform(){
+    function generateDataForPublisher(){
         
         let filterPublishers = props.games.filter((game) => {
             if (game.year >= 2010 && game.year <= 2015)
@@ -59,7 +59,7 @@ const BestPublisher = (props) => {
     
     return ( 
 
-        <Chart chartType="SteppedAreaChart" width="100%" height="400px" data={generateDataForPlatform()} options = {options} legendToggle />
+        <Chart chartType="SteppedAreaChart" width="100%" height="400px" data={generateDataForPublisher()} options = {options} legendToggle />
 
      );
 }
