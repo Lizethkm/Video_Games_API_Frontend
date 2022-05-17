@@ -39,6 +39,7 @@ const BestPlatformChart = (props) => {
     vAxis: {
       title: "Platforms",
     },
+    colors: ["green"],
   };
   
   

@@ -30,7 +30,7 @@ const DisplayPlatformStats = (props) => {
 
   const options = {
     title: "Global Sales Per Platform",
-    hAxis: { title: "Platform", minValue: 0, maxValue: 15 },
+    hAxis: { title: "Platforms", minValue: 0, maxValue: 15 },
     vAxis: { title: "Sales Per Millions", minValue: 0, maxValue: 15 },
     legend: "none",
     animation: {
