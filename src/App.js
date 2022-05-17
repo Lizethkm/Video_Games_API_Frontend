@@ -3,7 +3,7 @@ import axios from "axios";
 import DisplayPlatformStats from './Components/DisplayVideoGames/DisplayVideoGames';
 import DisplayGames from './Components/DisplayGames/DisplayGames';
 import BestPlatformChart from './Components/BestConsoleStats/BestConsoleChart';
-import BestPlatform from './Components/BestPlatform/BestPlatform';
+import BestPlatform from './Components/BestPlatform/BestPublisher';
 import Navbar from './Components/Navbar/Navbar'
 import "./App.css"
 

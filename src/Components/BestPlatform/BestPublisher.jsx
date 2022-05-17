@@ -8,39 +8,39 @@ const BestPlatform = (props) => {
     
     function generateDataForPlatform(){
         
-        let filterPlatforms = props.games.filter((game) => {
+        let filterPublishers = props.games.filter((game) => {
             if (game.year >= 2010 && game.year <= 2015)
                 return true
             })
         
-        let platforms = filterPlatforms.map((platform) => {
-            return platform.platform
+        let publishers = filterPublishers.map((el) => {
+            return el.publisher
         });
-        let distinctPlatforms = [...new Set(platforms)]
-        console.log("distinct;", distinctPlatforms)
-        let platformArrays = distinctPlatforms.map(platform => {
-            let allGames = filterPlatforms.filter(game => game.platform === platform);
+        let distinctPublishers = [...new Set(publishers)]
+        
+        let publishersArray = distinctPublishers.map(publisher=> {
+            let allGames = filterPublishers.filter(game => game.publisher === publisher);
             let globalSales = allGames.map((game) => {
                 return game.globalSales
             });
             
-        let platformSum = parseFloat(globalSales.reduce(
+        let sum = parseFloat(globalSales.reduce(
             (total, currentValue) => total + currentValue, 0).toFixed(2));
-        return [platform , platformSum, "#b0120a"]
+        return [publisher, sum, "#b0120a"]
         }); 
 
 
 
         const data = [
             ["Platform", "Sales (Per Millions) ", {role: "style"}],
-            ...platformArrays
+            ...publishersArray
         ];
         return data
 
     }
 
     const options = {
-        title: "Best Selling Platform Per Global Sales Within 5 Yrs",
+        title: "Best Publisher Per Global Sales Within 5 Yrs",
         chartArea: { width: "80%" },
         colors: ["#b0120a", "#ffab91"],
         hAxis: {
