@@ -4,7 +4,7 @@ import {Chart} from "react-google-charts";
 
 
 
-const BestPlatform = (props) => {
+const BestPublisher = (props) => {
     
     function generateDataForPlatform(){
         
@@ -64,4 +64,4 @@ const BestPlatform = (props) => {
      );
 }
  
-export default BestPlatform;
+export default BestPublisher;
