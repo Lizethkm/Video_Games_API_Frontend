@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import "./SearchBar.css"
 
 const SearchBar = (props) => {
-    // After Search Happens, Get Error Code Because now Games List is that filter List from search
+
     const [userInput, setUserInput] = useState("");
 
     function handleSubmit(event) {

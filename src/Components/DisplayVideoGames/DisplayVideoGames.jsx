@@ -3,11 +3,7 @@ import React, {useState} from 'react';
 
 
 const DisplayPlatformStats = (props) => {
-//   const [title, setTitle] = useState({
-//     title:"Sales Per Platform",
-//     vAxis: {title: "Sales"},
-//     hAxis: {title: "Platform"}
-//   })
+
   function generateDataForChart() {
     let filteredGames = props.games.filter(game => game.year >= 2013)
     let platforms = filteredGames.map(game => {
@@ -22,7 +18,7 @@ const DisplayPlatformStats = (props) => {
 
       let sum = globalSales.reduce(
         (total, currentValue) => total + currentValue, 0).toFixed(2);
-      return [platform, parseFloat(sum), "black"]
+      return [platform, parseFloat(sum), "#0D6EFD"]
     });
     
     const data = [

@@ -1,5 +1,5 @@
 import React from "react";
-import './DisplayGames.css'
+
 
 const DisplayGames = (props) => {
   function findGames(name) {

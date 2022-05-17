@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import DisplayPlatformStats from './Components/DisplayVideoGames/DisplayVideoGames';
-// import SearchBar from './Components/SearchBar/SearchBar';
 import DisplayGames from './Components/DisplayGames/DisplayGames';
 import BestPlatformChart from './Components/BestConsoleStats/BestConsoleChart';
 import BestPlatform from './Components/BestPlatform/BestPlatform';
 import Navbar from './Components/Navbar/Navbar'
 import "./App.css"
-// import YarnPikachu from "./YarnPikachu.png";
-// import KirbyYarn from "./KirbyYarn.png";
-// import YoshiYarn from "./YoshiYarn.png";
-// import MarioBrosYarn from "./MarioBrosYarn.png"
-
 
 function App() {
   
@@ -44,8 +38,3 @@ function App() {
 }
 
 export default App; 
-
-{/* <img src={YarnPikachu} alt='Yarn Pikachu' />
-      <img src={KirbyYarn} alt='Yarn Pikachu' />
-      <img src={YoshiYarn} alt='Yarn Pikachu' />
-      <img src={MarioBrosYarn} alt='Yarn Pikachu' /> */}
