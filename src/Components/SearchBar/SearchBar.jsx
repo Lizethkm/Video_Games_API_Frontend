@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./SearchBar.css"
 
 const SearchBar = (props) => {
     // After Search Happens, Get Error Code Because now Games List is that filter List from search
@@ -21,9 +22,9 @@ const SearchBar = (props) => {
     return (
         <form onSubmit={handleSubmit}>
 
-            <input value={userInput} onChange={(e) => setUserInput(e.target.value)} />
+            <input value={userInput} onChange={(e) => setUserInput(e.target.value)} placeholder='Ex: Mario Kart'/>
             <button type="submit" className="btn btn-primary">Search</button>
-            <button type="button" onClick = {clearSearch}>Clear</button>
+            <button type="button" className="btn btn-primary" onClick = {clearSearch}>Clear</button>
         </form>
     );
 }

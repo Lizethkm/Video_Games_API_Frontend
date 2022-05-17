@@ -33,9 +33,9 @@ const DisplayPlatformStats = (props) => {
   }
 
   const options = {
-    title: "Sales Per Platform",
+    title: "Global Sales Per Platform",
     hAxis: { title: "Platform", minValue: 0, maxValue: 15 },
-    vAxis: { title: "Sales", minValue: 0, maxValue: 15 },
+    vAxis: { title: "Sales Per Millions", minValue: 0, maxValue: 15 },
     legend: "none",
     animation: {
       startup: true,
@@ -47,7 +47,7 @@ const DisplayPlatformStats = (props) => {
 
   return (
     
-    <Chart  chartType="ScatterChart" width="80%" height="400px" data={generateDataForChart()} options= {options}/>
+    <Chart  chartType="ScatterChart" width="100%" height="400px" data={generateDataForChart()} options= {options}/>
   );
 
 }

@@ -32,7 +32,7 @@ const BestPlatform = (props) => {
 
 
         const data = [
-            ["Platform", "Sales", {role: "style"}],
+            ["Platform", "Sales (Per Millions) ", {role: "style"}],
             ...platformArrays
         ];
         return data
@@ -40,11 +40,11 @@ const BestPlatform = (props) => {
     }
 
     const options = {
-        title: "Best Selling Platform Within 5 Yrs",
+        title: "Best Selling Platform Per Global Sales Within 5 Yrs",
         chartArea: { width: "80%" },
         colors: ["#b0120a", "#ffab91"],
         hAxis: {
-          title: "Total Sales",
+          title: "Total Sales (Per Millions)",
           minValue: 0,
         },
         vAxis: {
